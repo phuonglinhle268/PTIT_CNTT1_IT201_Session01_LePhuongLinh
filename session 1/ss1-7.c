@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 bool dupNumber(int arr[], int n) {
     for (int i = 0; i < n-1; i++) {
         for (int j = i+1; j < n; j++) {
@@ -26,6 +25,23 @@ int main() {
     }
     return 0;
 }
+//Check way 1:
+// int main(void) {
+//     return 0;
+// }
+// int checkDup(int numbers[], int size) {
+//     //xet tung ptu trong mang
+//     for (int i = 0; i < size; i++) {
+//         //dem tung ptu dang dc xet di ss voi tat ca cac ptu con lai
+//         for (int j = i+1; j < size; j++) {
+//             if (numbers[i] == numbers[j]) {
+//                 return 1;
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
 //Độ phức tạp thời gian: O(n^2)
 //Độ phức tạp không gian: O(1)
 
@@ -67,5 +83,21 @@ int main() {
     }
     return 0;
 }
+// //check way 2
+// int checkDup(int numbers[], int size);
+// int checkDupSubArray(int numbers[], int size) {
+//     int seenNumbers[1001];
+//     //tao ra mang phu chua so luong ptu bang voi gioi han do lon cua mang dc xet
+//     //duyet qua tung ptu trong mang ban dau
+//     for (int i = 0; i < size; i++) {
+//         //neu ptu dc xet da co ptu t.ung trong mang phu la 1, thi tra ve gtri 1
+//         if (seenNumbers[numbers[i]] == 1) {
+//             return 1;
+//         }
+//         //ung voi ptu dc xet, tang gtri cua ptu t/ung trong mang phu len  1
+//         seenNumbers[numbers[i]] = 1;
+//     }
+// };
+
 //Độ phức tạp thời gian: O(n^2)
 //Độ phức tạp không gian: O(1)
