@@ -15,7 +15,7 @@ int main() {
     int arr[n];
     printf("Nhap phan tu co trong mang: ");
     for (int i = 0; i < n; i++) {
-        printf("arr[%d]: ", i);
+        printf("%d: ", i+1);
         scanf("%d", &arr[i]);
     }
     printf("Nhap phan tu muon biet so lan xuat hien: ");
