@@ -7,6 +7,10 @@ int main() {
     scanf("%d", &n);
     if (n > 0) {
         int *arr = (int *)malloc(n * sizeof(int));
+        if (arr == NULL) {
+            printf("Khong the cap phan bo nho");
+            return 1;
+        }
         for (int i = 0; i < n; i++) {
             printf("Nhap phan tu thu %d: ", i + 1);
             scanf("%d", &arr[i]);

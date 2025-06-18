@@ -9,6 +9,10 @@ int main() {
 
     if (n>0 && n<=100) {
         int *arr = malloc(sizeof(int) * n);
+        if (arr==NULL) {
+            printf("Khong the cap phan bo nho");
+            return 1;
+        }
         for (i = 0; i < n; i++) {
             printf("Nhap phan tu thu %d: ",i+1);
             scanf("%d",&arr[i]);
