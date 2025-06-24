@@ -29,5 +29,5 @@ int main() {
     } else {
         printf("So luong khong hop le");
     }
-    return 0;/;'//['
+    return 0;
 }
