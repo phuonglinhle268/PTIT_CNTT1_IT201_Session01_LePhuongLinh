@@ -19,7 +19,7 @@ int main() {
         getchar();
         printf("Ten: ");
         fgets(students[i].name, sizeof(students[i].name),stdin);
-        students[i].name[strcspn(students[i].name, "\n")]='0';
+        students[i].name[strcspn(students[i].name, "\n")]= '\0';
         printf("Tuoi: ");
         scanf("%d", &students[i].age);
     }

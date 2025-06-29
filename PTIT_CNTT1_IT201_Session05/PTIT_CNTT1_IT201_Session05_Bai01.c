@@ -4,9 +4,8 @@ void countDown(int n) {
     if (n == 0) {
         return;
     }
+    countDown(n-1);
     printf("%d\n", n);
-    n--;
-    countDown(n);
 }
 int main() {
     int n;
