@@ -61,5 +61,6 @@ int main() {
     printf("Nhap vi tri muon xoa: ");
     scanf("%d", &position);
     printf("Danh sach moi: ");
-    displayList(deleteNode(head, position));
+    head = deleteNode(head, position);
+    displayList(head);
 }

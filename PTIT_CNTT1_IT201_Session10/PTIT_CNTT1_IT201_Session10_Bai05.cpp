@@ -55,6 +55,7 @@ int main() {
     int value;
     printf("Nhap gia tri muon xoa: ");
     scanf("%d", &value);
-printf("Danh sach moi: ");
-displayList(deleteNode(head, value));
+    head = deleteNode(head, value);
+    printf("Danh sach moi: ");
+    displayList(head);
 }

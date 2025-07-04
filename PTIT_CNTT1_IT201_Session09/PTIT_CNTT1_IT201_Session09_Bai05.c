@@ -45,8 +45,10 @@ int main() {
     scanf("%d", &n);
     if (n>0) {
         printf("Danh sach moi: ");
-        displayList(insertNode(head, n));
+        head = insertNode(head, n);
+        displayList(head);
     } else {
         printf("Gia tri khong hop le");
     }
+
 }

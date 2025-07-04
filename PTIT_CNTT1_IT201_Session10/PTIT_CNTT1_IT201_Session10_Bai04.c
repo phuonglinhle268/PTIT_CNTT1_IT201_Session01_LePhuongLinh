@@ -52,7 +52,8 @@ int main() {
     node4 -> next = node5;
 
     displayList(head);
+    head = deleteAtEnd(head);
     printf("Danh sach moi: ");
-    displayList(deleteAtEnd(head));
+    displayList(head);
 
 }
