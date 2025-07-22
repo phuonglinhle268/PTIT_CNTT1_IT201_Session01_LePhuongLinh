@@ -53,7 +53,70 @@ Node *deQueue(Queue *queue) {
     return queue->arr[queue->front++];
 }
 //xdung ham xoa vao cay
-
+Node* delete(Queue* root, int data){
+    //ktra hang doi ko co node nao
+    if (root == NULL) {
+        return NULL;
+    }
+    //khoi tao hang doi va dua root vao hang doi
+    Queue* queue = createQueue(100);
+    enQueue(queue, root);
+    //khoi tao 3 bien: target, lastNode, lastParent
+    Node* target = NULL;
+    Node* lastNode = NULL;
+    Node* lastParent = NULL;
+    //trien khai vong lap den khi hang doi trong
+    while (!isEmpty(queue)) {
+        //lay node dau hang doi
+        Node* node = deQueue(root);
+        //ktra node co gtri bang voi gtri can xoa
+        if (node -> data == data) {
+            target = node;
+        }
+        //ktra con ben trai
+        if (node -> left != NULL) {
+            //neu co thi dua vao hang doi
+            enQueue(queue, node -> left);
+            //cap nhat lastParent thanh node dc lay
+            lastParent = node;
+            //cap nhat lastNode thanh con ben trai
+            lastNode = node -> left;
+        }
+        //ktra con con ben phai
+        if (node -> right != NULL) {
+            //neu co thi dua vao hang doi
+            enQueue(queue, node -> right);
+            //cap nhat lastParent thanh node dc lay
+            lastParent = node;
+            //cap nhat lastNode thanh con ben phai
+            lastNode = node -> right;
+        }
+    }
+    //neu ko tim thay, ket thuc ham
+    if (target == NULL) {
+        return root;
+    }
+    //xu li truong hop cay chi co node goc
+    if (lastNode == NULL) {
+        free(root);
+        root = NULL;
+    }
+    //xoa node cuoi cung
+    //gan du lieu lastNode vao target
+    target -> data = lastNode -> data;
+    //cap nhat con tro cua lastParent
+    if (lastNode == lastParent -> left) {
+        lastParent -> left = NULL;
+    } else {
+        lastParent -> right = NULL;
+    }
+    //giai phong lastNode
+    free(lastNode);
+    //giai phong cac vung nho can thiet va tra ve root
+    free(queue -> arr);
+    free(queue);
+    return root;
+}
 
 int main() {
     Node *root = NULL;
